@@ -17,6 +17,7 @@ module.exports = {
         'description',
         'link',
         'rating',
+        'uri',
         'addedAt'
       ],
     };
@@ -56,6 +57,7 @@ module.exports = {
         description: args.description,
         link: args.link,
         rating: args.rating,
+        uri: args.uri,
         addedAt: Date.now()
       },
     };
@@ -75,9 +77,10 @@ module.exports = {
         ':genre': args.genre,
         ':description': args.description,
         ':link': args.link,
+        ':uri': args.uri,
         ':rating': args.rating,
       },
-      UpdateExpression: 'SET name = :name, brewery = :brewery, genre = :genre, description = :description, link = :link, rating = :rating',
+      UpdateExpression: 'SET name = :name, brewery = :brewery, genre = :genre, description = :description, link = :link, rating = :rating, uri = :uri',
       ReturnValues: 'ALL_NEW',
     };
   

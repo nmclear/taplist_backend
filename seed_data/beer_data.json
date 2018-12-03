@@ -1,0 +1,52 @@
+[
+    {
+        "id": "aaa",
+        "name": "Two Hearted Ale",
+        "genre": "American IPA",
+        "rating": 4,
+        "link": "https://www.bellsbeer.com/beer/year-round/two-hearted-ale",
+        "description": "Brewed with 100% Centennial hops from the Pacific Northwest.Perfectly balanced with a malt backbone and combined with the signature fruity aromas of Bell's house yeast.",
+        "uri": "https://images.unsplash.com/photo-1518176258769-f227c798150e?ixlib=rb-0.3.5&ixid=eyJhcHBfaWQiOjEyMDd9&s=c2f65a2019b066f34061dfe4afb41bb4&auto=format&fit=crop&w=2089&q=80",
+        "brewery": "111"
+    },
+    {
+        "id": "bbb",
+        "name": "All Day IPA",
+        "genre": "Session IPA",
+        "rating": 3.8,
+        "link": "https://foundersbrewing.com/our-beer/all-day-ipa/",
+        "description": "The beer you’ve been waiting for. Keeps your taste satisfied while keeping your senses sharp. An all-day IPA naturally brewed with a complex array of malts, grains and hops.",
+        "uri": "https://images.unsplash.com/photo-1527838245215-e0f0eef2c66d?ixlib=rb-0.3.5&ixid=eyJhcHBfaWQiOjEyMDd9&s=76aecd5ba84b9b167893536db6b02c3f&auto=format&fit=crop&w=1651&q=80",
+        "brewery": "222"
+    },
+    {
+        "id": "ccc",
+        "name": "Patsy Coconut Stout",
+        "genre": "Coconut Rye Stout",
+        "rating": 4.8,
+        "link": "https://barleyforge.com/beer/the-patsy/",
+        "description": "Brewed with US 2-row malt, flaked rye, chocolate rye, and various English specialty malts, this mediumbodied beer features a rye spiciness balanced with dark chocolate and espresso, as well as copious amounts of toasted coconut.",
+        "uri": "https://images.unsplash.com/photo-1535958636474-b021ee887b13?ixlib=rb-0.3.5&ixid=eyJhcHBfaWQiOjEyMDd9&s=b5e84aac9375e681d5d62816044b7c09&auto=format&fit=crop&w=1650&q=80",
+        "brewery": "333"
+    },
+    {
+        "id": "ddd",
+        "name": "Aunt Sally Sour",
+        "genre": "Sour Ale",
+        "rating": 4.2,
+        "link": "https://lagunitas.com/beer/aunt-sally",
+        "description": "It tastes like a big bowl of fruity candy or some chewable flavored vitamins, but what's the difference? It's sweet, tart, and sassy, just like the tasty cherry pie that your favorite aunt makes.",
+        "uri": "https://images.unsplash.com/photo-1527604513203-59bf6147d70f?ixlib=rb-0.3.5&ixid=eyJhcHBfaWQiOjEyMDd9&s=2649c736a7dc37170802c7fcaf3df3e7&auto=format&fit=crop&w=1950&q=80",
+        "brewery": "444"
+    },
+    {
+        "id": "eee",
+        "name": "CEO Stout",
+        "genre": "Coffee Stout",
+        "rating": 4.4,
+        "link": "https://www.rightbrainbrewery.com/21/the-beer-list",
+        "description": "A light bodied American Style Stout brewed with locally roasted espresso beans from Roaster Jack Coffee Co. This beer was designed to be sessionable and consumed every day of the year, including summer. CEO Stands for Chocolate, Espresso, & Oatmeal.",
+        "uri": "https://images.unsplash.com/photo-1482443383061-99e85d885be0?ixlib=rb-0.3.5&ixid=eyJhcHBfaWQiOjEyMDd9&s=685b06dc369e9edf9cfeb65aaa665139&auto=format&fit=crop&w=1950&q=80",
+        "brewery": "555"
+    }
+]

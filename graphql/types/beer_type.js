@@ -6,7 +6,8 @@ module.exports = `
     genre: String!
     description: String!
     link: String!
-    rating: Int!
+    rating: Float!
+    uri: String!
     addedAt: String!
   }
   type Query {
@@ -20,7 +21,8 @@ module.exports = `
       genre: String!
       description: String!
       link: String!
-      rating: Int!
+      uri: String!
+      rating: Float!
     ): Beer
     updateBeer(
       id: ID!
@@ -29,7 +31,8 @@ module.exports = `
       genre: String!
       description: String!
       link: String!
-      rating: Int!
+      uri: String!
+      rating: Float!
     ): Beer
     deleteBeer(
       id: ID!

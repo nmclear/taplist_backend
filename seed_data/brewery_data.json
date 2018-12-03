@@ -1,0 +1,32 @@
+[
+    {
+        "id": "111",
+        "name": "Bell's Brewery",
+        "bio": "Bell's Brewery is a brewing company based in Kalamazoo, Michigan, with a second brewery in Comstock, Michigan. Bell's Brewery produces the Bell's brand of beers. Bell's also has a brewpub called the Eccentric Cafe.",
+        "beers": ["aaa"]
+    },
+    {
+        "id": "222",
+        "name": "Founders Brewing Co.",
+        "bio": "Based in Grand Rapids, Michigan, We at Founders Brewing Co. have been lucky to evolve into one of the highest recognized breweries in the United States. We’ve been ranked in the top breweries in the world by Ratebeer.com for the last five years, and we have several beers listed in the top 100 beers of the world on Beeradvocate.com. We’re now among the top ten largest craft breweries in the country and one of the fastest-growing. We’re proud to be doing what we’re doing. We give credit to our staff for continuously working to reinvent what beer can be and thanks to our many customers for whom we work to provide world-class beers.",
+        "beers": ["bbb"]
+    },
+    {
+        "id": "333",
+        "name": "Barley Forge Brewing Co.",
+        "bio": "Barley Forge Brewing Co. brews Belgian, West Coast and German-style beers – a blend of traditional, recognized styles and creative twists that draw from the melting pot of cuisines and cultures in Southern California. We’re honored to be Costa Mesa’s first-ever production brewery, and we intend to do our best to make the City proud. The brewery’s 10,000 square feet of combined tasting room, kitchen, bottling, aging, and production-brewing facilities are housed in a welcoming environment that we’ve put a lot of thought (and sweat) into – and that we hope you’ll enjoy. We are open seven days a week so please come out and pay us a visit!",
+        "beers": ["ccc"]
+    },
+    {
+        "id": "444",
+        "name": "Lagunitas Brewing Co.",
+        "bio": "The Lagunitas Brewing Company, founded in 1993 in Lagunitas, California, is a subsidiary of Heineken International. It is known for iconoclastic interpretations of traditional beer styles, and irreverent descriptive text and stories on its packaging. Lagunitas Brewing was the fifth top selling craft brewery in the US in 2013. In 2017, it became the third-best-selling craft beer in the US.",
+        "beers": ["ddd"]
+    },
+    {
+        "id": "555",
+        "name": "Right Brain Brewery",
+        "bio": "Right Brain Brewery is based in Traverse City, Michigan and our has nearly 40 beers on tap at all times. We at Right Brain believe in experimenting with unusual ingredients not typically used in the beer brewing process! We brew high quality popular styles like Ambers, Pales, Stouts, and IPAs. We also brew unique styles with unusual materials like whole pig parts, asparagus, or real cherry pie! There are NO EXTRACTS in our beer! All ingredients come from the ground. We care about the environment and buy local whenever possible. Not every new beer we brew is successful, but we prefer to always push the boundaries.  We're up for the challenge! Join us and Keep Beer Curious.",
+        "beers": ["eee"]
+    }
+]

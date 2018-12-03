@@ -102,9 +102,11 @@ custom:
       port: 8000
       inMemory: true
       migrate: true
-    #   seed: true
-    # seed:
-    #   domain:
-    #     sources:
-    #       - table: breweries
-    #         sources: [./seedData.json]
+      seed: true
+    seed:
+      domain:
+        sources:
+          - table: breweriesNew
+            sources: [./seed_data/brewery_data.json]
+          - table: beersNew
+            sources: [./seed_data/beer_data.json]
