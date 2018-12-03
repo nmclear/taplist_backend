@@ -1,0 +1,32 @@
+{
+  "name": "taplist_backend",
+  "version": "1.0.0",
+  "description": "Backend for taplist react native app",
+  "main": "handler.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/nmclear/taplist_backend.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/nmclear/taplist_backend/issues"
+  },
+  "homepage": "https://github.com/nmclear/taplist_backend#readme",
+  "dependencies": {
+    "aws-sdk": "^2.368.0",
+    "graphql": "^14.0.2",
+    "graphql-server-lambda": "^1.4.0",
+    "graphql-tools": "^4.0.3",
+    "merge-graphql-schemas": "^1.5.8",
+    "uuid": "^3.3.2"
+  },
+  "devDependencies": {
+    "serverless-dynamodb-local": "^0.2.35",
+    "serverless-offline": "^3.31.3"
+  }
+}
