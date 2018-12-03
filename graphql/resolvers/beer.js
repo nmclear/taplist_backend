@@ -1,6 +1,3 @@
-// import * as dbBreweries from './../../dynamodb/breweries';
-// import * as dbBeers from './../../dynamodb/beers';
-
 const dbBreweries = require('./../../dynamodb/breweries');
 const dbBeers = require('./../../dynamodb/beers');
 

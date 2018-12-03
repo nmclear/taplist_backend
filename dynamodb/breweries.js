@@ -1,73 +1,74 @@
 const uuid = require('uuid/v1');
-// import * as db from './index';
 const db = require('./index');
 
-const TABLE_NAME = process.env.TABLE_NAME;
+// const TABLE_NAME = process.env.TABLE_NAME;
+const TABLE_NAME = 'breweriesNew';
 
-module.exports = function getBreweries() {
-  const params = {
-    TableName: TABLE_NAME,
-    AttributesToGet: [
-      'id',
-      'name',
-      'bio',
-    ],
-  };
 
-  return db.scan(params);
-}
+module.exports = {
 
-module.exports = function getBreweryById(id) {
-  const params = {
-    TableName: TABLE_NAME,
-    Key: {
-      id,
-    },
-  };
+  getBreweries: () => {
+    const params = {
+      TableName: TABLE_NAME,
+      AttributesToGet: [
+        'id',
+        'name',
+        'bio',
+      ],
+    };
+  
+    return db.scan(params);
+  },
 
-  return db.get(params);
-}
+  getBreweryById: (id) => {
+    const params = {
+      TableName: TABLE_NAME,
+      Key: {
+        id,
+      },
+    };
+    return db.get(params);
+  },
 
-module.exports = function createBrewery(args) {
-  const params = {
-    TableName: TABLE_NAME,
-    Item: {
-      id: uuid(),
-      name: args.name,
-      bio: args.bio,
-      // beers: [],
-      // breweryId: uuidv1(),
-      addedAt: Date.now(),
-    },
-  };
+  createBrewery: (args) => {
+    const params = {
+      TableName: TABLE_NAME,
+      Item: {
+        id: uuid(),
+        name: args.name,
+        bio: args.bio,
+        // beers: [],
+        addedAt: Date.now(),
+      },
+    };
+    return db.createItem(params);
+  },
 
-  return db.createItem(params);
-}
+  updateBrewery: (args) => {
+    const params = {
+      TableName: TABLE_NAME,
+      Key: {
+        id: args.id,
+      },
+      ExpressionAttributeValues: {
+        ':name': args.name,
+        ':bio': args.bio,
+      },
+      UpdateExpression: 'SET name = :name, bio = :bio',
+      ReturnValues: 'ALL_NEW',
+    };
+  
+    return db.updateItem(params, args);
+  },
 
-module.exports = function updateBrewery(args) {
-  const params = {
-    TableName: TABLE_NAME,
-    Key: {
-      id: args.id,
-    },
-    ExpressionAttributeValues: {
-      ':name': args.name,
-      ':bio': args.bio,
-    },
-    UpdateExpression: 'SET name = :name, bio = :bio',
-    ReturnValues: 'ALL_NEW',
-  };
-
-  return db.updateItem(params, args);
-}
-
-module.exports = function deleteBrewery(args) {
-  const params = {
-    TableName: TABLE_NAME,
-    Key: {
-      id: args.id,
-    },
-  };
-
-  return db.deleteItem(params, args);
+  deleteBrewery: (args) => {
+    const params = {
+      TableName: TABLE_NAME,
+      Key: {
+        id: args.id,
+      },
+    };
+  
+    return db.deleteItem(params, args);
+  }
 }

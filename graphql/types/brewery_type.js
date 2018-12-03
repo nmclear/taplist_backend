@@ -1,24 +1,26 @@
-const {
-    GraphQLObjectType,
-    GraphQLString,
-    GraphQLList,
-    GraphQLID,
-    GraphQLNonNull,
-} = require('graphql');
-
-const BeerType = require('./beer_type');
-
-const BreweryType = new GraphQLObjectType({
-    name: 'BreweryType',
-    fields: {
-        id: { type: new GraphQLNonNull(GraphQLID) },
-        name: { type: new GraphQLNonNull(GraphQLString) },
-        bio: { type: new GraphQLNonNull(GraphQLString) },
-        addedAt: { type: new GraphQLNonNull(GraphQLString) },
-        beers: {
-            type: new GraphQLList(BeerType)
-        }
-    }
-});
-
-module.exports = BreweryType;
+module.exports = `
+  type Brewery {
+    id: ID!
+    name: String
+    bio: String
+    beers: [Beer]
+  }
+  type Query {
+    breweries: [Brewery]
+    brewery(id: ID!): Brewery
+  }
+  type Mutation {
+    createBrewery(
+      name: String!
+      bio: String!
+    ): Brewery
+    updateBrewery(
+      id: ID!
+      name: String!
+      bio: String!
+    ): Brewery
+    deleteBrewery(
+      id: ID!
+    ): Brewery
+  }
+`;

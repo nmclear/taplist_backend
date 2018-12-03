@@ -1,26 +1,38 @@
-const {
-    GraphQLObjectType,
-    GraphQLString,
-    GraphQLList,
-    GraphQLID,
-    GraphQLInt,
-    GraphQLNonNull
-} = require('graphql');
-
-const BreweryType = require('./brewery_type');
-
-const BeerType = new GraphQLObjectType({
-    name: 'BeerType',
-    fields: {
-        id: { type: new GraphQLNonNull(GraphQLID) },
-        name: { type: new GraphQLNonNull(GraphQLString) },
-        genre: { type: new GraphQLNonNull(GraphQLString) },
-        description: { type: new GraphQLNonNull(GraphQLString) },
-        link: { type: new GraphQLNonNull(GraphQLString) },
-        rating: { type: new GraphQLNonNull(GraphQLInt) },
-        addedAt: { type: new GraphQLNonNull(GraphQLString) },
-        brewery: { type: BreweryType },
-    }
-});
-
-module.exports = BeerType;
+module.exports = `
+  type Beer {
+    id: ID!
+    name: String!
+    brewery: Brewery!
+    genre: String!
+    description: String!
+    link: String!
+    rating: Int!
+    addedAt: String!
+  }
+  type Query {
+    beers: [Beer]
+    beer(id: ID!): Beer
+  }
+  type Mutation {
+    createBeer(
+      name: String!
+      brewery: String!
+      genre: String!
+      description: String!
+      link: String!
+      rating: Int!
+    ): Beer
+    updateBeer(
+      id: ID!
+      name: String!
+      brewery: String!
+      genre: String!
+      description: String!
+      link: String!
+      rating: Int!
+    ): Beer
+    deleteBeer(
+      id: ID!
+    ): Beer
+  }
+`;
