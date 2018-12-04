@@ -39,23 +39,23 @@ functions:
           path: graphql
           method: post
           cors: true
-  record:
-    handler: handler.record
-    events:
-      - stream:
-          type: dynamodb
-          arn:
-            Fn::GetAtt:
-              - BreweriesDynamoDbTable
-              - StreamArn
-          batchSize: 1
-      - stream:
-          type: dynamodb
-          arn:
-            Fn::GetAtt:
-              - BeersDynamoDbTable
-              - StreamArn
-          batchSize: 1
+  # record:
+  #   handler: handler.record
+  #   events:
+  #     - stream:
+  #         type: dynamodb
+  #         arn:
+  #           Fn::GetAtt:
+  #             - BreweriesDynamoDbTable
+  #             - StreamArn
+  #         batchSize: 1
+  #     - stream:
+  #         type: dynamodb
+  #         arn:
+  #           Fn::GetAtt:
+  #             - BeersDynamoDbTable
+  #             - StreamArn
+  #         batchSize: 1
 
 resources:
   Resources:
@@ -73,8 +73,8 @@ resources:
         ProvisionedThroughput:
           ReadCapacityUnits: 1
           WriteCapacityUnits: 1
-        StreamSpecification:
-          StreamViewType: NEW_AND_OLD_IMAGES
+        # StreamSpecification:
+        #   StreamViewType: NEW_AND_OLD_IMAGES
     BeersDynamoDbTable:
       Type: AWS::DynamoDB::Table
       DeletionPolicy: Retain
@@ -89,8 +89,8 @@ resources:
         ProvisionedThroughput:
           ReadCapacityUnits: 1
           WriteCapacityUnits: 1
-        StreamSpecification:
-          StreamViewType: NEW_AND_OLD_IMAGES
+        # StreamSpecification:
+        #   StreamViewType: NEW_AND_OLD_IMAGES
 
 plugins:
   - serverless-dynamodb-local

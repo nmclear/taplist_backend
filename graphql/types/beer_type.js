@@ -1,4 +1,6 @@
-module.exports = `
+const { gql } = require('apollo-server-lambda');
+
+module.exports = gql`
   type Beer {
     id: ID!
     name: String!

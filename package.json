@@ -18,6 +18,7 @@
   },
   "homepage": "https://github.com/nmclear/taplist_backend#readme",
   "dependencies": {
+    "apollo-server-lambda": "^2.2.5",
     "aws-sdk": "^2.368.0",
     "graphql": "^14.0.2",
     "graphql-tools": "^4.0.3",
