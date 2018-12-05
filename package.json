@@ -21,6 +21,7 @@
     "apollo-server-lambda": "^2.2.5",
     "aws-sdk": "^2.368.0",
     "graphql": "^14.0.2",
+    "graphql-playground-middleware-lambda": "^1.7.8",
     "graphql-tools": "^4.0.3",
     "merge-graphql-schemas": "^1.5.8",
     "uuid": "^3.3.2"

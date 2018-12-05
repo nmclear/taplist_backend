@@ -24,11 +24,6 @@ provider:
         - dynamodb:GetShardIterator
         - dynamodb:DescribeStream
         - dynamodb:ListStreams
-      # Resource:
-      #   Fn::Join:
-      #     - ""
-      #     - - "arn:aws:dynamodb:*:*:table/"
-      #       - Ref: BreweriesTable
       Resource: arn:aws:dynamodb:us-east-1:*:*
 
 functions:
@@ -39,6 +34,7 @@ functions:
           path: graphql
           method: post
           cors: true
+
   # record:
   #   handler: handler.record
   #   events:
