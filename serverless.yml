@@ -1,4 +1,4 @@
-service: aws-nodejs # NOTE: update this with your service name
+service: taplist-backend
 
 provider:
   name: aws
@@ -6,13 +6,6 @@ provider:
   iamRoleStatements:
     - Effect: Allow
       Action:
-        # - dynamodb:DescribeTable
-        # - dynamodb:Query
-        # - dynamodb:Scan
-        # - dynamodb:GetItem
-        # - dynamodb:PutItem
-        # - dynamodb:UpdateItem
-        # - dynamodb:DeleteItem
         - dynamodb:DescribeTable
         - dynamodb:Query
         - dynamodb:Scan
@@ -27,6 +20,13 @@ provider:
       Resource: arn:aws:dynamodb:us-east-1:*:*
 
 functions:
+  playground:
+    handler: handler.graphql
+    events:
+      - http:
+          path: playground
+          method: get
+          cors: true
   graphql:
     handler: handler.graphql
     events:
@@ -34,24 +34,9 @@ functions:
           path: graphql
           method: post
           cors: true
-
-  # record:
-  #   handler: handler.record
-  #   events:
-  #     - stream:
-  #         type: dynamodb
-  #         arn:
-  #           Fn::GetAtt:
-  #             - BreweriesDynamoDbTable
-  #             - StreamArn
-  #         batchSize: 1
-  #     - stream:
-  #         type: dynamodb
-  #         arn:
-  #           Fn::GetAtt:
-  #             - BeersDynamoDbTable
-  #             - StreamArn
-  #         batchSize: 1
+    environment:
+        TWILLIO_ACCOUNT_SID: ${file(./serverless.env.yml):dev.TWILLIO_ACCOUNT_SID}
+        TWILIO_AUTH_TOKEN: ${file(./serverless.env.yml):dev.TWILIO_AUTH_TOKEN}
 
 resources:
   Resources:
@@ -69,8 +54,6 @@ resources:
         ProvisionedThroughput:
           ReadCapacityUnits: 1
           WriteCapacityUnits: 1
-        # StreamSpecification:
-        #   StreamViewType: NEW_AND_OLD_IMAGES
     BeersDynamoDbTable:
       Type: AWS::DynamoDB::Table
       DeletionPolicy: Retain
@@ -85,8 +68,20 @@ resources:
         ProvisionedThroughput:
           ReadCapacityUnits: 1
           WriteCapacityUnits: 1
-        # StreamSpecification:
-        #   StreamViewType: NEW_AND_OLD_IMAGES
+    UsersDynamoDbTable:
+      Type: AWS::DynamoDB::Table
+      DeletionPolicy: Retain
+      Properties:
+        TableName: usersNew
+        AttributeDefinitions:
+          - AttributeName: phone
+            AttributeType: S
+        KeySchema:
+          - AttributeName: phone
+            KeyType: HASH
+        ProvisionedThroughput:
+          ReadCapacityUnits: 1
+          WriteCapacityUnits: 1
 
 plugins:
   - serverless-dynamodb-local

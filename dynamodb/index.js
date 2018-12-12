@@ -13,6 +13,13 @@ module.exports = {
         .catch(err => reject(err)),
     )
   ),
+  query: (params) => (
+    new Promise((resolve, reject) =>
+      dynamoDb.query(params).promise()
+        .then(data => resolve(data.Items))
+        .catch(err => reject(err)),
+    )
+  ),
   get: (params) => (
     new Promise((resolve, reject) =>
       dynamoDb.get(params).promise()
@@ -30,7 +37,7 @@ module.exports = {
   updateItem: (params, args) => (
     new Promise((resolve, reject) =>
       dynamoDb.update(params).promise()
-        .then(() => resolve(args))
+        .then((data) => resolve(data.Attributes))
         .catch(err => reject(err)),
     ) 
   ),
@@ -40,5 +47,15 @@ module.exports = {
         .then(() => resolve(args))
         .catch(err => reject(err)),
     )
-  )
+  ),
+  batchGet: (params) => (
+    new Promise((resolve, reject) =>
+      dynamoDb.batchGet(params).promise()
+        .then(data => {
+          const tableName = Object.keys(params.RequestItems)[0]
+          return resolve(data.Responses[tableName])
+        })
+        .catch(err => reject(err)),
+    )
+  ),
 }

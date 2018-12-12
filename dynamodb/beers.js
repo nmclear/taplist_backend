@@ -9,17 +9,6 @@ module.exports = {
   getBeers: () => {
     const params = {
       TableName: TABLE_NAME,
-      AttributesToGet: [
-        'id',
-        'name',
-        'brewery',
-        'genre',
-        'description',
-        'link',
-        'rating',
-        'uri',
-        'addedAt'
-      ],
     };
   
     return db.scan(params);
@@ -44,6 +33,18 @@ module.exports = {
     };
   
     return db.scan(params);
+  },
+  getBeersFromTapList: (taplist) => {
+    if(taplist.length === 0) return [];
+    const params = {
+      RequestItems: {
+        [TABLE_NAME]: {
+          Keys: taplist.map(id => ({ id })),
+        }
+      }
+    }
+
+    return db.batchGet(params);
   },
   
   createBeer: (args) => {
