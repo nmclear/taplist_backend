@@ -44,7 +44,7 @@ resources:
       Type: AWS::DynamoDB::Table
       DeletionPolicy: Retain
       Properties:
-        TableName: breweriesNew
+        TableName: taplist_app_breweries
         AttributeDefinitions:
           - AttributeName: id
             AttributeType: S
@@ -58,7 +58,7 @@ resources:
       Type: AWS::DynamoDB::Table
       DeletionPolicy: Retain
       Properties:
-        TableName: beersNew
+        TableName: taplist_app_beers
         AttributeDefinitions:
           - AttributeName: id
             AttributeType: S
@@ -72,7 +72,7 @@ resources:
       Type: AWS::DynamoDB::Table
       DeletionPolicy: Retain
       Properties:
-        TableName: usersNew
+        TableName: taplist_app_users
         AttributeDefinitions:
           - AttributeName: phone
             AttributeType: S

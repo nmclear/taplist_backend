@@ -33,9 +33,9 @@ module.exports = {
       },
       ExpressionAttributeValues: {
         ':taplist': args.taplist,
-        ':updatedAt': Date.now()
+        ':dateNow': Date.now()
       },
-      UpdateExpression: 'SET taplist = :taplist, updatedAt = :updatedAt',
+      UpdateExpression: 'SET taplist = :taplist, updatedAt = :dateNow',
       ReturnValues: 'ALL_NEW',
     };
   
@@ -51,5 +51,40 @@ module.exports = {
     };
   
     return db.deleteItem(params, args);
+  },
+  addBeerToTaplist: (args) => {
+    const params = {
+      TableName: TABLE_NAME,
+      Key: {
+        phone: args.phone,
+      },
+      ExpressionAttributeValues: {
+        // ':taplist': args.taplist,
+        ':beer': [args.beer],
+        ':beerId':  args.beer,
+        ':dateNow': Date.now()
+      },
+      ConditionExpression: 'NOT contains (taplist, :beerId)',
+      UpdateExpression: 'SET taplist = list_append(taplist, :beer), updatedAt = :dateNow',
+      ReturnValues: 'ALL_NEW',
+    };
+  
+    return db.updateItem(params, args);
+  },
+  resetTaplist: (phone) => {
+    const params = {
+      TableName: TABLE_NAME,
+      Key: {
+        phone,
+      },
+      ExpressionAttributeValues: {
+        ':emptyList': [],
+        ':dateNow': Date.now()
+      },
+      UpdateExpression: 'SET taplist = :emptyList, updatedAt = :dateNow',
+      ReturnValues: 'ALL_NEW',
+    };
+  
+    return db.updateItem(params, { phone });
   }
 }

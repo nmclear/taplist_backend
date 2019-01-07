@@ -31,5 +31,14 @@ module.exports = gql`
       codeValid: Boolean
       authStatus: Boolean
     ): User
+    addBeerToTaplist(
+      phone: ID
+      taplist: [String]
+      beer: String
+    ): User
+    resetTaplist(
+      phone:ID
+      taplist: [String]
+    ): User
   }
 `;

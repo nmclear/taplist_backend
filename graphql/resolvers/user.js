@@ -67,6 +67,8 @@ module.exports = {
     authorizeUser: (_, args) => authorizeUser(args),
     updateUser: (_, args) => dbUsers.updateUser(args),
     deleteUser: (_, args) => dbUsers.deleteUser(args),
+    addBeerToTaplist: (_, args) => dbUsers.addBeerToTaplist(args),
+    resetTaplist: (_, args) => dbUsers.resetTaplist(args.phone)
   },
   User: {
     taplist: user => dbBeers.getBeersFromTapList(user.taplist),

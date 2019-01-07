@@ -1,5 +1,4 @@
 const uuid = require('uuid/v1');
-// import * as db from './index';
 const db = require('./index');
 
 // const TABLE_NAME = process.env.TABLE_NAME;
@@ -11,6 +10,7 @@ module.exports = {
       TableName: TABLE_NAME,
     };
   
+    
     return db.scan(params);
   },
 

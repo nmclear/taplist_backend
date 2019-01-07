@@ -3,7 +3,7 @@ const dbBeers = require('./../../dynamodb/beers');
 
 module.exports = {
   Query: {
-    beers: () => dbBeers.getBeers(),
+    beers: (_, args) => dbBeers.getBeers(),
     beer: (_, args) => dbBeers.getBeerById(args.id),
   },
   Mutation: {

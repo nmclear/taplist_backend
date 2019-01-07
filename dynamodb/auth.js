@@ -1,4 +1,3 @@
-const uuid = require('uuid/v1');
 const db = require('./index');
 
 // const TABLE_NAME = process.env.TABLE_NAME;
@@ -19,6 +18,10 @@ module.exports = {
         addedAt: Date.now(),
         updatedAt: Date.now()
       },
+      // ExpressionAttributeValues: {
+      //   ':phone': phone
+      // },
+      ConditionExpression: 'attribute_not_exists(phone)',
     };
     return db.createItem(params);
   },
@@ -31,11 +34,12 @@ module.exports = {
       },
       ExpressionAttributeValues: {
         ':code': 0,
-        ':codeValid': false,
-        ':authStatus': true,
-        ':updatedAt': Date.now()
+        ':true': true,
+        ':false': false,
+        ':dateNow': Date.now()
       },
-      UpdateExpression: 'SET code = :code, codeValid = :codeValid, updatedAt = :updatedAt, authStatus = :authStatus',
+      ConditionExpression: 'authStatus = :false',
+      UpdateExpression: 'SET code = :code, codeValid = :false, updatedAt = :dateNow, authStatus = :true',
       ReturnValues: 'ALL_NEW',
     };
   
