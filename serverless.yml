@@ -10,6 +10,7 @@ provider:
         - dynamodb:Query
         - dynamodb:Scan
         - dynamodb:GetItem
+        - dynamodb:BatchGetItem
         - dynamodb:PutItem
         - dynamodb:UpdateItem
         - dynamodb:DeleteItem
@@ -97,7 +98,7 @@ custom:
     seed:
       domain:
         sources:
-          - table: breweriesNew
+          - table: taplist_app_breweries
             sources: [./seed_data/brewery_data.json]
-          - table: beersNew
+          - table: taplist_app_beers
             sources: [./seed_data/beer_data.json]

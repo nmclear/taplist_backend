@@ -2,7 +2,7 @@ const uuid = require('uuid/v1');
 const db = require('./index');
 
 // const TABLE_NAME = process.env.TABLE_NAME;
-const TABLE_NAME = 'usersNew';
+const TABLE_NAME = 'taplist_app_users';
 
 
 module.exports = {
